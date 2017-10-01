@@ -8,6 +8,8 @@ Using Web Components in React is tricky due to the way React works, but the idea
 
 ![Screenshot of a Web Component being rendered inside a React component](https://i.imgur.com/mgEi6B4.png)
 
+This project is a continuation of the work started by rnicholus as `react-web-component-wrapper`. If it weren't for the groundwork he layed this would not exist.
+
 With ReWebComponent, writing a `HelloWorld` React component that corresponds to a `<hello-world />` Web Component is as simple as:
 
 ```
@@ -25,6 +27,8 @@ ReWebComponent supports:
 * Events
 * CSS custom properties
 * Nesting children via slots
+
+ReWebComponent is not likely to be developed further (by me at least), but is hopefully another step in the process for someone else to build on!
 
 Known issues:
 * When using ReWebComponent in create-react-app, web components can only be loaded via the import approach if they do not use ES6 class syntax ([CRA Issue 3225 ](https://github.com/facebookincubator/create-react-app/issues/3225)). This means supported elements must use the `let MyElemProto = Object.create(HTMLElement.prototype)` style and `document.registerElement` instead of `customElements.define`, or be loaded via HTML Imports by using the `importHref` prop.
