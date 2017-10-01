@@ -30,7 +30,8 @@ Known issues:
 * When using ReWebComponent in create-react-app, web components can only be loaded via the import approach if they do not use ES6 class syntax ([CRA Issue 3225 ](https://github.com/facebookincubator/create-react-app/issues/3225)). This means supported elements must use the `let MyElemProto = Object.create(HTMLElement.prototype)` style and `document.registerElement` instead of `customElements.define`, or be loaded via HTML Imports by using the `importHref` prop.
 
 TODO:
-* Run prettify, tidy up semicolons etc
+* Cleanup: run Prettier, tidy up semicolon usage, add comments etc
+* More examples
 * Manually test with more use cases involving both React and the Web Component attempting to mutate itself or it's children
 * Write tests
 * Determine whether a smarter method is required for supporting HTML imports
