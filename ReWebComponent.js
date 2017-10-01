@@ -37,7 +37,8 @@ const getAttrsToPass = props => {
 
 class ReWebComponent extends Component {
   static defaultProps = {
-    className: ""
+    className: "",
+    style: {},
   };
 
   static propTypes = {
