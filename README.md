@@ -1,6 +1,6 @@
 # ReWebComponent v0.1 (not production ready)
 
-It turns out that using Web Components in React projects is pretty tricky due to the way React works, but the idea of framework-independent UI components is awesome, so if only we could do better...
+Using Web Components in React is tricky due to the way React works, but the idea of framework-independent UI components is awesome, so if only we could do better...
 
 * A wild ReWebComponent appears!
 * It uses "Easily Wrap Web Components In A Couple Of Lines"
