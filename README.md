@@ -8,7 +8,7 @@ Using Web Components in React is tricky due to the way React works, but the idea
 
 ![Screenshot of a Web Component being rendered inside a React component](https://i.imgur.com/mgEi6B4.png)
 
-With ReWebComponent, writing a HelloWorld React component that corresponds to a 'hello-world' Web Component is as simple as:
+With ReWebComponent, writing a `HelloWorld` React component that corresponds to a `<hello-world />` Web Component is as simple as:
 
 ```
 import React from 'react'
@@ -21,7 +21,7 @@ export default (props) => {
 }
 ```
 
-Supports:
+ReWebComponent supports:
 * Events
 * CSS custom properties
 * Nesting children via slots
