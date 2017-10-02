@@ -46,6 +46,7 @@ Credit:
 
 TODO:
 * Cleanup: run Prettier, tidy up semicolon usage, add comments etc
+* Publish to NPM
 * More examples
 * Manually test with more use cases involving both React and the Web Component attempting to mutate itself or it's children
 * Write tests
