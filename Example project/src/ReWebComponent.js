@@ -70,7 +70,7 @@ class WebComponent extends Component {
         const eventNameWithHyphens = propName.substr(2).split(/(?=[A-Z])/).join('-').toLowerCase();
         // Don't double listen if this would be the same listener
         if (eventNameWithHyphens !== eventName) {
-          this._wcEl.addEventListener[eventNameWithHyphens] = handler;
+          this._wcEventListeners[eventNameWithHyphens] = handler;
           this._wcEl.addEventListener(eventNameWithHyphens, handler);
         }
       }
