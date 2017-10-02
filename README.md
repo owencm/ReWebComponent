@@ -1,4 +1,4 @@
-# ReWebComponent v0.1 (not production ready)
+# ReWebComponent v0.2 (not production ready)
 
 Using Web Components in React is tricky due to the way React works, but the idea of framework-independent UI components is awesome, so if only we could do better...
 
@@ -12,10 +12,9 @@ With ReWebComponent, writing a `HelloWorld` React component that corresponds to 
 
 ```
 import ReWebComponent from './ReWebComponent.js'
-// Import your web component!
+// Import your web component so it's bundled correctly
 import './hello-world.js'
 
-// ReWebComponent returns a React component that corresponds to the <hello-world> web component!
 const HelloWorld = ReWebComponent('hello-world')
 export default HelloWorld
 ```
