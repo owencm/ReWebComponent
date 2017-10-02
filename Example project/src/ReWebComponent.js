@@ -35,7 +35,7 @@ const getAttrsToPass = props => {
   return attrs;
 };
 
-class ReWebComponent extends Component {
+class WebComponent extends Component {
   static defaultProps = {
     className: "",
     style: {},
@@ -58,13 +58,21 @@ class ReWebComponent extends Component {
   componentDidMount() {
     Object.keys(this.props).forEach(propName => {
       if (isNameOfEventHandler(propName)) {
-        const eventName = propName.substr(2).toLowerCase();
         const handler = (...args) => {
           this.props[propName].apply(null, args);
         };
 
+        const eventName = propName.substr(2).toLowerCase();
         this._wcEventListeners[eventName] = handler;
         this._wcEl.addEventListener(eventName, handler);
+
+        // Some events are fired with hyphens, e.g. 'selected-changed' so listen for these too
+        const eventNameWithHyphens = propName.substr(2).split(/(?=[A-Z])/).join('-').toLowerCase();
+        // Don't double listen if this would be the same listener
+        if (eventNameWithHyphens !== eventName) {
+          this._wcEl.addEventListener[eventNameWithHyphens] = handler;
+          this._wcEl.addEventListener(eventNameWithHyphens, handler);
+        }
       }
     });
 
@@ -92,7 +100,6 @@ class ReWebComponent extends Component {
     const WebComponent = (
       <TagName
         class={this.props.className}
-        is={this.props.extends ? this.props.tag : ""}
         ref={wcEl => (this._wcEl = wcEl)}
         style={this.props.style}
         {...attrsToPass}
@@ -109,4 +116,25 @@ class ReWebComponent extends Component {
   }
 }
 
-export default ReWebComponent;
+const ReactComponentForWebComponent = ({ tag, importHref }) => {
+  return (props) => {
+    return (
+      <WebComponent
+        tag={tag}
+        importHref={importHref}
+        {...props}
+      >
+        {props.children}
+      </WebComponent>
+    )
+  }
+}
+
+// Export a builder function that either the web components tag as a string, or an object containing the tag and the HTML import HREF
+export default (...args) => {
+  if (typeof args[0] === 'string') {
+    return ReactComponentForWebComponent({ tag: args[0] })
+  } else {
+    return ReactComponentForWebComponent(args[0])
+  }
+}
